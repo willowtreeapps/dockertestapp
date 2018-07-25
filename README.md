@@ -1,0 +1,1 @@
+run espresso tests: `./gradlew connectedAndroidTest`
