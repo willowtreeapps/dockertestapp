@@ -7,3 +7,5 @@
 /build
 /captures
 .externalNativeBuild
+dockertestapp.iml
+local.properties
