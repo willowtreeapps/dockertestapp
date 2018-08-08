@@ -22,5 +22,15 @@ RUN $ANDROID_HOME/tools/bin/sdkmanager "build-tools;${ANDROID_BUILD_TOOLS_VERSIO
     "platforms;android-${ANDROID_VERSION}" \
     "platform-tools"
 
+ENV PATH="${ANDROID_HOME}/platform-tools:${PATH}"
+ENV PATH="${ANDROID_HOME}/tools:${PATH}"
+ENV PATH="${ANDROID_HOME}/tools/bin:${PATH}"
+
+RUN $ANDROID_HOME/tools/bin/sdkmanager "system-images;android-25;google_apis;armeabi-v7a"
+RUN echo "no" | $ANDROID_HOME/tools/bin/avdmanager create avd -n test2 -k "system-images;android-25;google_apis;armeabi-v7a"
+RUN $ANDROID_HOME/tools/emulator -avd test2 -noaudio -no-boot-anim -no-window &
+
 ADD . /dockertestapp
 WORKDIR /dockertestapp
+
+
