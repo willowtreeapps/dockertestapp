@@ -8,6 +8,13 @@ run espresso tests: `./gradlew connectedAndroidTest`
 - build the android app: `docker run docker-android bash -c './gradlew assembleRelease'`
 - interactive shell on docker container: `docker run -it docker-android bash`
 
+## VNC
+
+- start with `docker run -d -p 5901:5901 -p 2222:22 -v $(pwd)/sdk:/opt/android-sdk thyrlian/android-sdk-vnc`
+- open screen sharing `localhost:5901`
+- Password (with control): `android`
+- Password (view only): `docker`
+
 ## TODO
 
 - install and run emulator before starting test in docker
