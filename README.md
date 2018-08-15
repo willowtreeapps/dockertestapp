@@ -10,7 +10,7 @@ run espresso tests: `./gradlew connectedAndroidTest`
 
 ## VNC
 
-- start with `docker run -d -p 5901:5901 -p 2222:22 -v $(pwd)/sdk:/opt/android-sdk thyrlian/android-sdk-vnc`
+- start with `docker run -d -p 5901:5901 -p 2222:22 docker-android`
 - open screen sharing `localhost:5901`
 - Password (with control): `android`
 - Password (view only): `docker`
@@ -27,8 +27,8 @@ run espresso tests: `./gradlew connectedAndroidTest`
 `export PATH=$PATH:$ANDROID_HOME/tools/bin`
 
 `sdkmanager --list`
-`sdkmanager "system-images;android-25;google_apis;armeabi-v7a"`
-`echo "no" | avdmanager create avd -n test2 -k "system-images;android-25;google_apis;armeabi-v7a"`
+`sdkmanager "system-images;android-24;google_apis;armeabi-v7a"`
+`echo "no" | avdmanager create avd -n test -k "system-images;android-24;google_apis;armeabi-v7a"`
 `avdmanager list avd`
-`emulator -avd test2 -noaudio -no-boot-anim -no-window &`
+`emulator -avd test -noaudio -no-boot-anim -no-window &`
 `adb devices`
